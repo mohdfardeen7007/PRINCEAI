@@ -581,9 +581,30 @@ if (settingsREAD.autoread2) await this.readMessages([m.key])
 	    //if (typeof process.env.STATUSVIEW !== 'undefined' && process.env.STATUSVIEW.toLowerCase() === 'true') { if (m.key.remoteJid === 'status@broadcast') { await conn.readMessages([m.key]); } }
 
 	
-         let bot = global.db.data.settings[this.user.jid] || {}; if (process.env.STATUSVIEW && process.env.STATUSVIEW.toLowerCase() === 'true') { if (m.key.remoteJid === 'status@broadcast' && !m.fromMe) { await conn.readMessages([m.key]); const prince = ['😀', '🇵🇰', '😄', '😁', '😊', '😇', '🙂', '🙃', '😍', '🥰', '😘', '😗', '😙', '😚', '😋', '💌', '💘', '💝', '💖', '💗', '💓', '💞', '💕', '💟', '❣️', '❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍', '💯', '🇵🇰', '🇵🇰', '💫']; const randomEmoji = prince[Math.floor(Math.random() * prince.length)]; const me = await conn.decodeJid(conn.user.id); await conn.sendMessage(m.key.remoteJid, { react: { key: m.key, text: randomEmoji } }, { statusJidList: [m.key.participant, me] }); } } else if (bot.statusview) { if (m.key.remoteJid === 'status@broadcast' && !m.fromMe) { await conn.readMessages([m.key]); const prince = ['😀', '🇵🇰', '😄', '😁', '😊', '😇', '🙂', '🙃', '😍', '🥰', '😘', '😗', '😙', '😚', '😋', '💌', '💘', '💝', '💖', '💗', '💓', '💞', '💕', '💟', '❣️', '❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍', '💯', '🇵🇰', '🇵🇰', '💫']; const randomEmoji = prince[Math.floor(Math.random() * prince.length)]; const me = await conn.decodeJid(conn.user.id); await conn.sendMessage(m.key.remoteJid, { react: { key: m.key, text: randomEmoji } }, { statusJidList: [m.key.participant, me] }); } }
+         
+let bot = global.db.data.settings[this.user.jid] || {}; 
+let statusViewEnabled = process.env.STATUSVIEW && process.env.STATUSVIEW.toLowerCase() === 'true';
 
 
+let defaultEmojis = ['💚', '💛'];
+let statusEmojis = process.env.StatusEmojies ? process.env.StatusEmojies.split(',') : defaultEmojis;
+
+
+if (statusViewEnabled || bot.statusview) { 
+    if (m.key.remoteJid === 'status@broadcast' && !m.fromMe) {  
+        await conn.readMessages([m.key]); 
+
+        
+        if (bot.like) { 
+            const randomEmoji = statusEmojis[Math.floor(Math.random() * statusEmojis.length)]; 
+            const me = await conn.decodeJid(conn.user.id);
+
+            await conn.sendMessage(m.key.remoteJid, { 
+                react: { key: m.key, text: randomEmoji } 
+            }, { statusJidList: [m.key.participant, me] });
+        }
+    } 
+}
 
 	    
 
