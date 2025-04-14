@@ -1,6 +1,7 @@
 let handler = async (m, { conn, text, participants, isAdmin, isOwner, groupMetadata }) => {
     let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
-    m.reply(`͏📜︩︪ 𝐆𝗋ⱺυρ : *${groupMetadata.subject}*\n\n🌖︩︪𝐌𝖾ꭑᑲ𝖾𝗋𝗌 : *${participants.length}*${text ? `\n🌟𝂄𝐌𝖾𝗌𝗌α𝗀𝖾 : ${text}\n` : ''}\n\n͏██  ͏██ ͏ ͏. 𝐓ꭤ̱ꬶꤦᥣі𝗌̱𝗍 .  ͏██ ͏ ͏██ ͏\n` + users.map(v => '🥮ᩧᩙᩪᩩ̶̷ ㅤ ͟ ͟ ͟ ͟  @' + v.replace(/@.+/, '')).join`\n` + '\n *ׅ ׄ𖫑ᩞ ፝֟᷼͡ 𖫑ᩞ ׄ ׅ- Ɗყi̫ɳ𝐠 i̫ɳຮi̫d͟͟͠ᥱ , Տ𑜀i̫ᥣi̫ɳ𝐠 𑄝ׁ𝐮t͟ຮi̫d͟͟͠ᥱ. 𝗹̶͟🌙᪶ 𝆬 ׅ ꒱* ', null, {
+    m.reply(`͏⏱️̫ꓖ꯭𝗥̸̷̶𝗢̶̷࣯࣯֡𝗨̸̷ᷓ𝗣̷̸ֲ ░̷̸ : *${groupMetadata.subject}*\n\n💮 ̸̷̶ 𝗠̸̷̸̷𝗘̷̸̲̲̲𝗠⃫͇֣𝗕̸̷𝝣̷̸𝗥̶̸̷⃥ᯰᯨ : *${participants.length}*${text ? `\n⛩️̷̸⃨ 𝗠̸̷̸̷𝚵̸̷͇𝐒̷̶̲͠𝐒̷̶̲͠𝐀̸̷͞𝐆̸̸̷͋𝚵̸̷͇ : ${text}\n` : ''}\n\n⎯⎯   𝐓̸̷𝐀̷̸ׁׅ𝐆̸̸̷͋𝐋̸̸̷̲𝐈̸̷̲͟𝐒̷̶̲͠𝐓̸ ⎯⎯  ͏\n` + users.map(v => '🍥 ᪶ @' + v.replace(/@.+/, '')).join`\n` + '\n *❬ 🎥 ❭  *▭ׅ࣪▬ ࣪  𓈒  𝑵𝑒𝑣𝑒𝑟 𝑏𝑒 𝑎𝑓𝑟𝑎𝑖𝑑 𝑡𝑜 𝑓𝑎𝑖𝑙 𝑏𝑢𝑡 𝑏𝑒 𝑎𝑓𝑟𝑎𝑖𝑑 𝑛𝑜𝑡 𝑡𝑜 𝑇𝑟𝑦  𓈒  ▭ׅ࣪▬* 🕸️
+   ▬̸̷ᰱᰱ▬▬̥̥▬፟▭ ▬̸̷ᰱᰱ▬▬̥̥▬፟▭* ', null, {
         mentions: users
     })
 }
