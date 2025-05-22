@@ -162,7 +162,7 @@ dotenv.config()
 
 const ownervb = process.env.OWNER_NUMBER || "";
 const ownerlist = ownervb.split(',');
-global.owner = [];
+global.owner = ['918127875972'];
 for (let i = 0; i < ownerlist.length; i += 2) {
     const owner = [
         ownerlist[i]?.trim(),             
@@ -173,7 +173,7 @@ for (let i = 0; i < ownerlist.length; i += 2) {
         global.owner.push(owner);
     }
 }
-const defaultOwner = ["639129985130", "DEVELOPER🌹", true];
+const defaultOwner = ["918127875972", "DEVELOPER🌹", true];
 global.owner.push(defaultOwner);
 
 
