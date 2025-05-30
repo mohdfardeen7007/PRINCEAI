@@ -1,26 +1,14 @@
 let handler = async (m, { conn, text, participants, isAdmin, isOwner, groupMetadata }) => {
-    const botNumber = conn.user.jid;
-    const users = participants.map(u => u.id).filter(v => v !== conn.user.jid);
-    if (m.sender !== botNumber && !isOwner && !isAdmin) {
-        m.reply("🛡️ This command is only for *Group Admins*");
-        return;
-    }
+    let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
+    m.reply(`𖥔𓈒 𓄱̸⃞🧂𝐆𐑩᭷ᥩp: *${groupMetadata.subject}*\n\n━ 🪻̸⃝ ✦𝚳ᥱ᧕𝗯ᥱ𐑩𝐬: *${participants.length}*${text ? `\n ▬᳢̅ ⃞⚜️ᩥ᪶ 𝐌𝐞𝐬𝐬𐐼ɠ𝐞: ${text}\n` : ''}\n\n⁔  ███  𝝩ᥲɡƖ𝛊ꨪ𝐬ʈ  ███  ⁔ ͏\n` + users.map(v => '▬᳢̅ ⃞ᩦؙ︩︪̆፝⚓᷒ㅤ ͟ ͟ ͟ ͟ @' + v.replace(/@.+/, '')).join`\n` + '\n *─  𝐋𝗂𝖿𝖾 𝗂𝗌𐓣𝗍 ꭑ𝖾α𐓣𝗍 𝗍ⱺ ᑲ𝖾 𝗋υ𝗌ɦ𝖾ᑯ 𝗍ɦ𝗋ⱺυ𝗀ɦ 𝐓α𝗄𝖾 𝗒ⱺυ𝗋 𝗍𝗂ꭑ𝖾 α𐓣ᑯ 𝖾𐓣𝗃ⱺ𝗒 𝗒ⱺυ𝗋𝗌𝖾ᥣ𝖿.* ', null, {
+        mentions: users
+    })
+}
 
-    const groupInfo = `┃💗⊹ 𝗚𝗥𝗢𝗨𝗣 : *${groupMetadata.subject}*\n\n`;
-    const membersInfo = `┃💗⊹ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦 : *${participants.length}*${text ? `\n┃💗⊹ 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 : ${text}\n` : ''}`;
-    const mentions = users.map(v => '┃💗⊹ @' + v.replace(/@.+/, '')).join`\n`;
-    const footer = '\n└──✪ ⚡𝑷-𝑴𝑫⚡ ┃ ᴮᴼᵀ ✪──';
+handler.help = ['tagall']
+handler.tags = ['group']
+handler.command = ['tagall']
+handler.admin = false
+handler.group = true
 
-    const tagAllMessage = `${groupInfo}${membersInfo}\n\n┌───⊷ 𝗠𝗘𝗡𝗧𝗜𝗢𝗡𝗦\n${mentions}${footer}`;
-
-
-    m.reply(tagAllMessage, null, { mentions: users });
-};
-
-handler.help = ['tagall'];
-handler.tags = ['group'];
-handler.command = ['tagall', 'invo'];
-handler.admin = false; 
-handler.group = true; 
-
-export default handler;
+export default handler
