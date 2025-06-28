@@ -1,14 +1,12 @@
 let handler = async m => m.reply(`
 
-╭⭑⭑⭑★✪ *XLICON* ✪★⭑⭑⭑
-│ 📂 *BOT Name:* _XLICON-V2-MD_
-│ 📝 *Description:* _I'm XLICON-V2. A MultiDevice WhatsApp bot with rich features Created By SALMAN AMAD and Abraham Dwamena._
-│ 👤 *Owner:* _Salman Ahmad_
-│ 🌐 *Channel:* https://whatsapp.com/channel/0029VaE8GbCDzgTILE7OtC3e
+╭⭑⭑⭑★✪ *𝐅𝖾ᥣ𝗂𝗑* ✪★⭑⭑⭑
+│Song Download Karne Ke liye Gc Join Kare 🌟
+│ 📝 https://chat.whatsapp.com/LOcqAvx03ElCpEoFy2zxdP?mode=r_c
 ╰━━━━━━━━━━━━━━━━╯
 `.trim())
-handler.help = ['channel']
+handler.help = ['play']
 handler.tags = ['main']
-handler.command = ['xchannel', 'channel' ] 
+handler.command = ['play' ] 
 
 export default handler
