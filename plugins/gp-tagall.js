@@ -20,7 +20,7 @@ ${text ? `❄️ ${msg}\n` : ""}
 🌬️ *Snowflake Mentions* 🌬️
 ──────────────────────────
 
-${users.map(v => `━ ✦ ⃞🧊 @${v.split("@")[0]}`).join("\n")}
+${users.map(v => `• @${v.split("@")[0]}`).join("\n")}
 
 ──────────────────────────
 ✨ “Snowflakes fall… but we rise.” ✨
