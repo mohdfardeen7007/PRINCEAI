@@ -36,7 +36,7 @@ ${users.map(v => "━ ✦ ⃞🧊°° @" + v.replace(/@.+/, "")).join("\n")}
 handler.help = ['tagall']
 handler.tags = ['group']
 handler.command = ['tagall']
-handler.admin = true
+handler.admin = false
 handler.group = true
 handler.desc = "Anime-style fancy TagAll"
 
