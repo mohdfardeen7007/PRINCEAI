@@ -1,31 +1,21 @@
-let handler = async (m, { conn, text, participants, groupMetadata }) => {
+let handler = async (m, { conn, text, participants, isAdmin, isOwner, groupMetadata }) => {
   let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
-
-  let title = "𝐖𝗂𐓣𝗍𝖾𝗋 𝐒𐓣ⱺω 𝐓α𝗀"
-  let gname = `𝐆𝗋ⱺυρ: ${groupMetadata.subject}`
-  let msg = text ? `𝐌𝖾𝗌𝗌α𝗀𝖾: ${text}` : ""
-  let count = `𝐌𝖾ꭑᑲ𝖾𝗋𝗌: ${participants.length}`
-
-  let anime = `
-╔━━━━━━━✧𐙚 ❄️ 𐙚✧━━━━━━━╗
-        𝐖𝗂𐓣𝗍𝖾𝗋 𝚰𝗌 𝐂ⱺꭑ𝗂𐓣𝗀☃️ 
-   𝐂ⱺᥣᑯ ᑯα𝗒𝗌 • 𝐂ⱺᥣᑯ𝖾𝗋 𝐌𝖾ꭑⱺ𝗋𝗂𝖾𝗌
-╚━━━━━━━✧𐙚 ❄️ 𐙚✧━━━━━━━╝
-
-❄️ *${title}*
-❄️ ${gname}
-❄️ ${count}
-${text ? `❄️ ${msg}\n` : ""}
-
-🌬️ *Snowflake Mentions* 🌬️
-──────────────────────────
-
-${users.map(v => `• @${v.split("@")[0]}`).join("\n")}
-
-──────────────────────────
-✨ “Snowflakes fall… but we rise.” ✨
-──────────────────────────
-  `.trim()
-
-  m.reply(anime, null, { mentions: users })
+  m.reply(
+    `▢ Group : *${groupMetadata.subject}*\n▢ Members : *${participants.length}*${text ? `\n▢ Message : ${text}\n` : ''}\n┌───⊷ *MENTIONS*\n` +
+      users.map(v => '▢ @' + v.replace(/@.+/, '')).join`\n` +
+      '\n└──✪ GURU ┃ ᴮᴼᵀ ✪──',
+    null,
+    {
+      mentions: users,
+    }
+  )
 }
+
+handler.help = ['tagall']
+handler.tags = ['group']
+handler.command = ['tagall']
+handler.desc = 'Tag all group members'
+handler.admin = true
+handler.group = true
+
+export default handler
