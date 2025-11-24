@@ -16,7 +16,7 @@ ${text ? `▌ ❄️ *Message:* ${text}\n` : ""}
 ${users.map(v => `━ ✦ ⃞🧊• @${v.split("@")[0]}`).join("\n")}
 ───────────────────────
 
-❄️ “Snowflakes fall… but memories stay.” ❄️
+❄️ “𝐒𐓣ⱺω𝖿ᥣα𝗄𝖾𝗌 𝖿αᥣᥣ… ᑲυ𝗍 ꭑ𝖾ꭑⱺ𝗋𝗂𝖾𝗌 𝗌𝗍α𝗒.” ❄️
   `.trim()
 
   m.reply(winter, null, { mentions: users })
@@ -26,7 +26,7 @@ handler.help = ['tagall']
 handler.tags = ['group']
 handler.command = ['tagall']
 handler.desc = 'Winter Theme TagAll'
-handler.admin = true
+handler.admin = false
 handler.group = true
 
 export default handler
