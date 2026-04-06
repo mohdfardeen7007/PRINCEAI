@@ -2,7 +2,6 @@
   "name": "PRINCEAI",
   "description": "whatsapp user bot",
   "repository": "https://github.com/DASTAGHIR/PRINCEAI",
-  "logo": "https://dl.dropboxusercontent.com/scl/fi/23sk0rocfryxysefgnbce/image_1756540708611.jpg?rlkey=9ev6gfk260ym9dcwu20obcr32&dl=0",
   "success_url": "https://github.com/DASTAGHIR/PRINCEAI",
   "keywords": [
     "nodejs", "heroku", "bot", "urdu", "english", "indonesian", "arab", "portuguese", "italian", "french", "whatsapp",
@@ -69,7 +68,7 @@
     "autoreactions_emojies": {
       "description": "put your favourite emojies for AutoReactions on chats or make it empty for all default emojies",
       "required": false,
-      "value": "♥️,🤗,❤️,💞,❣️,💙,💛,🤍,💚,😍,🥰,💝,💖,💗,💓,💞,💕,❣️,💘,💟,🖤,🤎,💜,💫,🌸"
+      "value": ""
     },
     "VAR_APP": {
       "description": "put same app name you entered above",
